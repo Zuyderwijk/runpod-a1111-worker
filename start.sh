@@ -2,9 +2,10 @@
 
 echo "Worker Initiated"
 
-echo "Symlinking files from Network Volume"
-rm -rf /workspace && \
-  ln -s /runpod-volume /workspace
+echo "Using existing /workspace volume mount"
+# Verwijder onderstaande twee regels, want ze breken de mount
+# rm -rf /workspace && \
+#   ln -s /runpod-volume /workspace
 
 if [ -f "/workspace/venv/bin/activate" ]; then
     echo "Starting WebUI API"
