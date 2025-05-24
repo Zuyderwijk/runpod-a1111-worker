@@ -4,7 +4,7 @@
 #########################################################
 
 # Install directory without trailing slash
-install_dir="/workspace"
+install_dir="/workspace/runpod-a1111-worker"
 
 # Name of the subdirectory
 #clone_dir="stable-diffusion-webui"
@@ -13,13 +13,13 @@ install_dir="/workspace"
 export COMMANDLINE_ARGS="--port 3000 --listen --api --xformers"
 
 # python3 executable
-#python_cmd="python3"
+python_cmd="python3"
 
 # git executable
 #export GIT="git"
 
 # python3 venv without trailing slash (defaults to ${install_dir}/${clone_dir}/venv)
-venv_dir="/workspace/venv"
+venv_dir="${install_dir}/venv"
 
 # script to launch to start the app
 #export LAUNCH_SCRIPT="launch.py"
@@ -48,3 +48,6 @@ venv_dir="/workspace/venv"
 
 ###########################################
 
+source "${venv_dir}/bin/activate"
+
+${python_cmd} "${install_dir}/webui.py" $COMMANDLINE_ARGS
